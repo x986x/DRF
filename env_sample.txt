@@ -1,6 +1,6 @@
-SECRET_KEY=django-insecure-n8dxw3elktp6fmryo$68g5ok0n_oziks@3_amcdl-jmb$_29il
-NAME=DRF
-USER=postgres
-PASSWORD=Qaz123
-HOST=127.0.0.1
-PORT=5432
+SECRET_KEY=
+NAME=
+USER=
+PASSWORD=
+HOST=
+PORT=
