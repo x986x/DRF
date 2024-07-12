@@ -1,0 +1,34 @@
+[
+    {
+        "model": "materials.course",
+        "pk": 1,
+        "fields": {
+            "name": "Course 1",
+            "description": "Description of Course 1"
+        }
+    },
+    {
+        "model": "materials.course",
+        "pk": 2,
+        "fields": {
+            "name": "Course 2",
+            "description": "Description of Course 2"
+        }
+    },
+    {
+        "model": "materials.course",
+        "pk": 3,
+        "fields": {
+            "name": "Course 3",
+            "description": "Description of Course 3"
+        }
+    },
+    {
+        "model": "materials.course",
+        "pk": 4,
+        "fields": {
+            "name": "Course 4",
+            "description": "Description of Course 4"
+        }
+    }
+]
