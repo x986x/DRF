@@ -1,0 +1,24 @@
+[
+    {
+        "model": "users.User",
+        "pk": 1,
+        "fields": {
+            "email": "user1@example.com",
+            "phone": "1234567890",
+            "city": "City1",
+            "avatar": "",
+            "password": "pbkdf2_sha256$216000$..."
+        }
+    },
+    {
+        "model": "users.User",
+        "pk": 2,
+        "fields": {
+            "email": "user2@example.com",
+            "phone": "0987654321",
+            "city": "City2",
+            "avatar": "",
+            "password": "pbkdf2_sha256$216000$..."
+        }
+    }
+]

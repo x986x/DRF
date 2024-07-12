@@ -1,0 +1,31 @@
+http://127.0.0.1:8000/materials/lessons/
+{
+        "id": 1,
+        "name": "",
+        "description": "",
+        "image": null,
+        "link_to_video": "",
+        "course": 1
+    }
+
+http://127.0.0.1:8000/materials/courses/
+
+{
+        "id": 1,
+        "name": "",
+        "image": null,
+        "description": ""
+}
+
+http://127.0.0.1:8000/users/payments/
+{
+        "id": 1,
+        "date_of_pay": "2024-01-01",
+        "amount": 3000,
+        "method": "CASH",
+        "user": 1,
+        "lesson": 2,
+        "course": null
+    },
+    http://127.0.0.1:8000/users/payments?method=CASH
+    http://127.0.0.1:8000/users/payments?method=TRAN
