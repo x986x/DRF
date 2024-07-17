@@ -1,11 +1,12 @@
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
 
-from users import models
+from materials import models
 from materials.models import Course, Lesson
 
 
 class LessonSerializer(ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
         model = Lesson
         fields = "__all__"
@@ -25,7 +26,14 @@ class CourseDetailSerializer(ModelSerializer):
 
 class CourseSerializer(ModelSerializer):
     lessons = LessonSerializer(many=True, read_only=True)
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
 
     class Meta:
         model = Course
         fields = "__all__"
+
+
+class PaymentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Payment
+        fields = '__all__'

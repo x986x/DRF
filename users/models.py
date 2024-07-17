@@ -1,14 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
-from materials.models import Lesson, Course
+from .manager import CustomUserManager
 
 NULLABLE = {"blank": True, "null": True}
-
-METHOD_CHOISES = [
-    ('CASH', 'оплата наличными'),
-    ('TRAN', 'перевод на счет')
-]
 
 
 class User(AbstractUser):
@@ -32,21 +26,8 @@ class User(AbstractUser):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
+    objects = CustomUserManager()
+
     class Meta:
         verbose_name = "Пользователь"
         verbose_name_plural = "Пользователи"
-
-
-class Payment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
-    date_of_pay = models.DateField(auto_now=True, verbose_name='дата оплаты')
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, **NULLABLE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, **NULLABLE)
-    amount = models.PositiveIntegerField()
-    method = models.CharField(max_length=4, choices=METHOD_CHOISES)
-    filterset_fields = ['category', 'in_stock']
-
-    class Meta:
-        verbose_name = "Платеж"
-        verbose_name_plural = "Платежи"
-        ordering = ['date_of_pay']
