@@ -75,11 +75,13 @@ class Payment(models.Model):
     amount = models.PositiveIntegerField()
     method = models.CharField(max_length=4, choices=METHOD_CHOISES)
     filterset_fields = ['category', 'in_stock']
+    session_id = models.TextField(verbose_name='id сессии', **NULLABLE)
+    payment_link = models.TextField(verbose_name='ссылка на оплату', **NULLABLE)
+
 
     class Meta:
         verbose_name = "Платеж"
         verbose_name_plural = "Платежи"
-        ordering = ['date_of_pay']
 
 
 class Subscription(models.Model):

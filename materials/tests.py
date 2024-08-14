@@ -17,7 +17,6 @@ class LessonTestCase(APITestCase):
         cls.user.save()
         cls.lesson = Lesson.objects.create(name='урок', user=cls.user)
 
-
     def test_create(self):
         data = {
             'name': 'test2'
@@ -53,7 +52,7 @@ class LessonTestCase(APITestCase):
 
     def test_list(self):
         self.client.force_authenticate(self.user)
-        response = self.client.get(reverse('materials:lessons-list'))
+        response = self.client.get(reverse('materials:lesson-list'))
         data = {
             "count": 1,
             "next": None,
@@ -77,7 +76,6 @@ class LessonTestCase(APITestCase):
             response.status_code,
             status.HTTP_200_OK
         )
-
 
     def test_update(self):
         data = {
@@ -111,6 +109,7 @@ class LessonTestCase(APITestCase):
             response.status_code,
             status.HTTP_204_NO_CONTENT
         )
+
 
 class SubscriptionTestCase(APITestCase):
     @classmethod

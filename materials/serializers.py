@@ -8,6 +8,7 @@ from materials.models import Course, Lesson
 
 class LessonSerializer(ModelSerializer):
     user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
     class Meta:
         model = Lesson
         fields = "__all__"
@@ -27,7 +28,8 @@ class CourseDetailSerializer(ModelSerializer):
 
     class Meta:
         model = Course
-        fields = ('name', 'description', 'image', 'count_lesson_in_course', 'lesson')
+        fields = ('name', 'description', 'image', 'count_lesson_in_course', 'lesson', "subscription",)
+        validators = [YouTubeLinkOnlyValidator(fields=['name', 'description'])]
 
 
 class CourseSerializer(ModelSerializer):
@@ -37,10 +39,13 @@ class CourseSerializer(ModelSerializer):
     class Meta:
         model = Course
         fields = "__all__"
-        validators = [YouTubeLinkOnlyValidator(fields=['name', 'description'])]
 
 
 class PaymentSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    method = serializers.CharField(default=serializers.CreateOnlyDefault('TRAN'))
+
     class Meta:
         model = models.Payment
         fields = '__all__'
+
