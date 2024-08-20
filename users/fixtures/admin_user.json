@@ -3,8 +3,8 @@
         "model": "users.user",
         "pk": 1,
         "fields": {
-            "email": "lepyanske@ya.ru",
-            "password": "pbkdf2_sha256$260000$RdFznRzEqJx2$yIcIzIcL8bPZ7lSc6S1aFHD6M/wskZG14rAPxsn76yQ",
+            "email": "dmitry.lepyansky@yandex.ru",
+            "password": "Qaz123",
             "is_superuser": true,
             "is_staff": true,
             "is_active": true,

@@ -1,38 +1,20 @@
 [
     {
         "model": "materials.course",
-        "pk": 1,
+        "pk": 5,
         "fields": {
-            "name": "Course 1",
-            "description": "Description of Course 1",
-            "user": 1
+            "name": "Course 5",
+            "description": "Description of Course 5",
+            "user": 3
         }
     },
     {
         "model": "materials.course",
-        "pk": 2,
+        "pk": 6,
         "fields": {
-            "name": "Course 2",
-            "description": "Description of Course 2",
-            "user": 1
-        }
-    },
-    {
-        "model": "materials.course",
-        "pk": 3,
-        "fields": {
-            "name": "Course 3",
-            "description": "Description of Course 3",
-            "user": 2
-        }
-    },
-    {
-        "model": "materials.course",
-        "pk": 4,
-        "fields": {
-            "name": "Course 4",
-            "description": "Description of Course 4",
-            "user": 2
+            "name": "Course 6",
+            "description": "Description of Course 6",
+            "user": 3
         }
     }
 ]

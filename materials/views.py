@@ -12,6 +12,7 @@ from materials.models import Course, Lesson, Subscription
 from materials.paginators import CoursePagination, LessonPagination
 from materials.serializers import CourseSerializer, LessonSerializer, CourseDetailSerializer
 from materials.services import create_product, create_price, create_session
+from materials.tasks import send_notification
 from users.permissions import IsModerator, UserListOnly, IsOwner
 
 
@@ -21,6 +22,10 @@ class CourseViewSet(viewsets.ModelViewSet):
     """
     queryset = Course.objects.all()
     pagination_class = CoursePagination
+
+    def perform_update(self, serializer):
+        self.course = serializer.save()
+        send_notification.delay(self.course.id)
 
     def get_serializer_class(self):
         if self.action == 'retrieve':
